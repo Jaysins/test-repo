@@ -1,0 +1,11 @@
+{
+  "name": "ado-test-demo",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "jest --coverage --ci --reporters=default --reporters=jest-junit"
+  },
+  "devDependencies": {
+    "jest": "^29.0.0",
+    "jest-junit": "^16.0.0"
+  }
+}
