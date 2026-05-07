@@ -1,12 +1,17 @@
-trigger:
-- main
-
-pool:
+parameters:                                 
+  - name: Branch                        
+    type: string
+    default: main                                                                                                                                                                                                  
+  
+trigger:                                                                                                                                                                                                           
+- main                                                                                                                                                                                                           
+                                            
+pool:                                   
   vmImage: 'ubuntu-latest'
-
+                                                                                                                                                                                                                    
 steps:
-- task: NodeTool@0
-  inputs:
+- task: NodeTool@0                                                                                                                                                                                                 
+  inputs:                                                                                                                                                                                                        
     versionSpec: '18.x'
 
 - script: npm install
@@ -14,14 +19,14 @@ steps:
 
 - script: npm test
   displayName: Run tests
-
-- task: PublishTestResults@2
+                                            
+- task: PublishTestResults@2            
   inputs:
-    testResultsFormat: 'JUnit'
+    testResultsFormat: 'JUnit'                                                                                                                                                                                     
     testResultsFiles: '**/junit.xml'
-    failTaskOnFailedTests: true
-
-- task: PublishCodeCoverageResults@1
-  inputs:
+    failTaskOnFailedTests: true                                                                                                                                                                                    
+                                                                                                                                                                                                                  
+- task: PublishCodeCoverageResults@1        
+  inputs:                               
     codeCoverageTool: 'Cobertura'
-    summaryFileLocation: 'coverage/cobertura-coverage.xml'
+    summaryFileLocation: 'coverage/cobertura-coverage.xml' 
